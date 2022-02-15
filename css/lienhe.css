@@ -1,0 +1,27 @@
+.input-group-text {
+    color: white!important;
+    background-color:lightseagreen;
+    width: 75px;
+    text-align: right;
+}
+.input-group-prepend{
+    width: 75px;
+    margin-right: 10px;
+}
+.form-control{
+    background-color:lightseagreen;
+    border: 0;
+}
+
+::placeholder { /* chạy tốt trên Chrome, Firefox, Opera, Safari 10.1+ */
+    color: white !important;
+    opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* chạy trên Internet Explorer 10-11 */
+    color: white !important;
+}
+
+::-ms-input-placeholder { /* chạy trên Microsoft Edge */
+    color: white !important;
+}

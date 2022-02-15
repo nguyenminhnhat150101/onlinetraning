@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+        <link rel="stylesheet" href="css/lienhe.css">
+        <link rel="stylesheet" href="css/poly.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+        <title>Online Training</title>
+    </head>
+    <body ng-app="myapp">
+        <div class="container">
+            <header class="row">
+                <img class="w-100 p-0" src="images/banner.png">
+            </header>
+            <!--Navbar-->
+            <nav class="row">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                    <div class="container-fluid">
+                        <a class="navbar-brand" href="layout.html">Trang chủ <span class="sr-only">(current)</span><i class="fas fa-home"></i></a>
+                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                            <!--
+                            <li class="nav-item active">
+                                <a class="nav-link" href="layout.html"><i class="fas fa-home"></i> FPT Polytechnic<span class="sr-only">(current)</span></a>
+                            </li>
+                            -->
+                            <li class="nav-item">
+                                <a class="nav-link" href="Gioithieu.html"><i class="fas fa-info"></i> Giới thiệu</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="lienhe.html"><i class="far fa-envelope"></i> Liên hệ</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="gopy.html"><i class="far fa-paper-plane"></i> Góp ý</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="hoidap.html"><i class="fab fa-first-order-alt"></i> Hỏi đáp</a>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                  Tài Khoản <i class="fas fa-user"></i>
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                  <a class="dropdown-item" href="layout.html#!/Dangnhap">Đăng nhập</a>
+                                  <a class="dropdown-item" href="layout.html#!/DangKi">Đăng ký</a>
+                                  <a class="dropdown-item" href="layout.html#!/Quenmatkhau">Quên mật khẩu</a>
+                                  <div class="dropdown-divider"></div>
+                                  <a class="dropdown-item" href="#">Đăng xuất</a>
+                                  <a class="dropdown-item" href="layout.html#!/doimatkhau">Đổi mật khẩu</a>
+                                  <a class="dropdown-item" href="layout.html#!/Capnhattaikhoan">Cập nhật hồ sơ</a>
+                                </ul>
+                              </li>
+                        </ul>                                      
+                    </div>
+                    </div>
+                </nav>
+            </nav>
+            <!---->
+    <main class="row p-2">
+          <div class="row">
+            <article class="col-sm-9">
+                <div class="card row p-2 m-2 border-0">
+                  <div class="accordion" id="accordionExample">
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                          1. Khám phá Trang tổng quan và Hồ sơ của bạn
+                        </button>
+                      </h2>
+                      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Sau khi tạo tài khoản, bạn có thể xem các khóa học bạn đã đăng ký trên trang tổng quan, tạo hồ sơ và thay đổi cài đặt tài khoản hoặc khóa học.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                          2. Đăng ký một khóa học
+                        </button>
+                      </h2>
+                      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Phần này cung cấp thông tin về việc đăng ký một khóa học. Các trang web khác nhau có thể cung cấp các tùy chọn khác nhau để đăng ký.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="accordion-item">
+                      <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                          3. Hoàn thành điều kiện tiên quyết của khóa học
+                        </button>
+                      </h2>
+                      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                          Chủ đề này mô tả cách hoàn thành bất kỳ điều kiện tiên quyết nào có thể được yêu cầu trong khóa học của bạn.
+                        </div>
+                      </div>
+                    </div>
+                  </div>                    
+            </article>
+            <!---->
+            <aside class="col-sm-3 p-0">               
+                <div class="card mt-2 ml-n2 mr-n2 h-auto">
+                    <div class="card-header"><i class="fas fa-list"></i> Danh Mục Môn Học</div>
+                    <div class="card-body p-0">
+                        <ul class="list-group text-dark">
+                            <li class="list-group-item">Kiểm thử và triển khai</li>
+                            <li class="list-group-item">SQL Server</li>
+                            <li class="list-group-item">Điện toán đám mây</li>
+                            <li class="list-group-item">lập trình PHP</li>
+                            <li class="list-group-item">Lập Trình Android nâng cao</li>
+                            <li class="list-group-item">Lập Trình Android cơ bản</li>
+                            <li class="list-group-item">Thiết kế layout</li>
+                            <li class="list-group-item">Thiết kế giao diện Android</li>
+                            <li class="list-group-item">Quản lý dự án với Agile</li>
+                            <li class="list-group-item">Internet Marketing</li>
+                            <li class="list-group-item">Lập Trình hướng đối tượng Java</li>
+                            <li class="list-group-item">Lập Trình ASP.NET</li>
+                        </ul>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+    <footer>
+      <div class="container-fluid p-0">
+        <div class="row text-left">
+          <div class="col-md-5 col-sm-5">
+            <h4 class="text-light">Về chúng tôi</h4>
+            <p class="text-muted">Nguyễn Minh Nhật PS13276 Chuyên ngành ứng dụng phầm mền</p>
+            <p class="pt-4 text-muted">Bản quyền © 2021 Bảo lưu mọi quyền | Mẫu này được tạo bởi
+              <span>Minh Nhật</span>
+            </p>
+          </div>
+          <div class="col-md-5 col-sm-12">
+            <h4 class="text-light">Bản tin</h4>
+            <p class="text-muted">Tiếp tục được cập nhật</p>
+            <form class="form-inline">
+              <div class="col pl-0">
+                <div class="input-group pr-5">
+                  <input type="text" class="form-control bg-dark text-white" id="inlineFormInputGroupUsername2" placeholder="Email">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text">
+                      <i class="fas fa-arrow-right"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-md-2 col-sm-12">
+            <h4 class="text-light">Follow Us</h4>
+            <p class="text-muted">Let us be social</p>
+            <div class="column text-light">
+              <a href="https://www.facebook.com/"><i class="fab fa-facebook"></i></a>
+              <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a>
+              <a href="https://www.google.com/intl/vi/account/about/"><i class="fab fa-google-plus-g"></i></a>
+              <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.youtube.com/"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    </body>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

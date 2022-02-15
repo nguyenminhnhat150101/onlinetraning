@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="css/dangki.css">
+    <link rel="stylesheet" href="css/poly.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://code.angularjs.org/1.8.0/angular-route.min.js"></script>
+    <title>Online Training</title>
+</head>
+<body ng-app="myapp">
+    <div class="container">
+        <header class="row">
+            <img class="w-100 p-0" src="images/banner.png">
+        </header>
+        <!--Navbar-->
+        <nav class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light w-100">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="layout.html">Trang chủ <span class="sr-only">(current)</span><i class="fas fa-home"></i></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <!--
+                        <li class="nav-item active">
+                            <a class="nav-link" href="layout.html"><i class="fas fa-home"></i> FPT Polytechnic<span class="sr-only">(current)</span></a>
+                        </li>
+                        -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="Gioithieu.html"><i class="fas fa-info"></i> Giới thiệu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="lienhe.html"><i class="far fa-envelope"></i> Liên hệ</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="gopy.html"><i class="far fa-paper-plane"></i> Góp ý</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="hoidap.html"><i class="fab fa-first-order-alt"></i> Hỏi đáp</a>
+                        </li>
+                    </ul>
+                    <ul  class="navbar-nav ml-auto my-2 my-lg-0 navbar-nav-scroll">
+                        <li ng-controller="checkdn" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                              {{fullname}} {{tk}} <i class="fas fa-user"></i>                        
+                            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                                <a class="dropdown-item" href="#!Dangnhap">Đăng nhập</a>
+                                <a class="dropdown-item" href="#!DangKi">Đăng ký</a>
+                                <a class="dropdown-item" href="#!Quenmatkhau">Quên mật khẩu</a>
+                                <div class="dropdown-divider"></div>
+                                <a ng-controller="myctrl" class="dropdown-item" ng-click="Dangxuat()" href="#">Đăng xuất</a>
+                                <a class="dropdown-item" href="#!doimatkhau">Đổi mật khẩu</a>
+                                <a class="dropdown-item" href="#!Capnhattaikhoan">Cập nhật hồ sơ</a>
+                            </ul>                           
+                        </li>
+                    </ul>                                      
+                </div>
+                </div>
+            </nav>
+        </nav>
+        <!---->
+        <main class="row my-2" ng-view>
+            
+        </main>
+        <nav class="row" ng-include="'footer.html'"></nav>
+</body>
+<script src="db/Students.js"></script>
+<script>
+    var app = angular.module("myapp",["ngRoute"]);
+    app.config(function($routeProvider){
+        $routeProvider
+        .when("/Dangnhap",{templateUrl:"Dangnhap.html",controller:"myctrl"})
+        .when("/DangKi",{templateUrl:"Dangki.html", controller:"myctrl"})
+        .when("/Quenmatkhau",{templateUrl:"Quenmatkhau.html",controller:"myctrl"})
+        .when("/doimatkhau",{templateUrl:"doimatkhau.html",controller:"myctrl"})
+        .when("/Capnhattaikhoan",{templateUrl:"Capnhattaikhoan.html",controller:"myctrl"})
+        .when("/tracnghiem/:idMH/:tenMH",{templateUrl:"trangthi.html",controller:"myExam"})
+        .otherwise({templateUrl:"index.html",controller:"myExam"})
+    })
+    app.controller("myExam",function($scope, $http, $interval, $routeParams){
+        $scope.cacmonhoc=[];
+        $http.get("db/Subjects.js").then(function (d){$scope.cacmonhoc = d.data});
+        $scope.idMH = $routeParams.idMH;
+        $scope.tenMH = $routeParams.tenMH;
+        $scope.pageSize = 4;
+        $scope.batdau = 0; 
+        $scope.next = function () {
+            $scope.batdau += 1;
+            if ($scope.batdau == 77) { $scope.batdau = 0 }
+        }
+        $scope.prev = function () {
+            $scope.batdau -= 1;
+        }
+        $scope.trangdau = function () {
+            $scope.batdau = 0;
+        }
+        $scope.trangcuoi = function () {
+            sotrang = Math.ceil($scope.cacmonhoc.length / $scope.pageSize);
+            $scope.batdau = (sotrang - 1) * $scope.pageSize;
+        }
+      
+        $scope.questions = [];
+            $http.get("db/Quizs/" + $scope.idMH + ".js").then(
+            function (q) { $scope.questions = q.data },
+            function (q) { }
+        )
+        $scope.start = 0;
+
+        $scope.tiep = function () {
+            $scope.start += 1;
+            if ($scope.start == 77) { $scope.start = 0 }
+        }
+        $scope.truoc = function () {
+            $scope.start -= 1;
+        }
+        $scope.first = function () {
+            $scope.start = 0;
+        }
+        $scope.last = function () {
+            $scope.start = ($scope.questions.length) - 1;
+        }
+        $scope.min = '--';
+        $scope.sec = '--';
+        $scope.countDown = 300;
+        $scope.timeOut = -1;
+        //$scope.timeOut = 0;
+        var startQuiz = $interval(function () {
+        var min = parseInt($scope.countDown / 60, 10)
+        var sec = parseInt($scope.countDown % 60, 10);
+        $scope.min = min < 10 ? "0" + min : min;
+        $scope.sec = sec < 10 ? "0" + sec : sec;
+        console.log($scope.countDown--);
+        $scope.timeOut++;
+        }, 1000, $scope.countDown);
+        $scope.$on('$destroy', function () {
+        if (angular.isDefined(startQuiz)) {
+            $interval.cancel(startQuiz);
+            startQuiz = undefined;
+        }
+        })
+    });
+    app.controller("checkdn",function($scope){
+        $scope.fullname = "Tài Khoản";
+        $scope.tk = "Tài Khoản";
+        $scope.flag = false;
+        var ht =  sessionStorage.getItem("fullname");                
+        if ( ht!="") {
+            $scope.fullname = ht;
+            $scope.flag = true;             
+        }else{$scope.fullname = "Tài Khoản";$scope.flag = false;}
+        if (ht!=null) {
+            $scope.tk = null;
+        }
+        $scope.Dangxuat = function(){
+            $scope.fullname = "Tài Khoản";
+            document.location = "layout.html#!/Dangnhap";
+        }
+    });
+    app.controller("myctrl",function($scope){
+        $scope.student = {};
+        $scope.index = -1;
+
+        $scope.Dangki = function(){
+            try {               
+                listStudent.push(angular.copy($scope.student));
+                console.log(listStudent);  
+            }catch (e){console.log(e.message);}
+            finally{
+                alert("Thêm sinh viên thành công");
+                document.location = "layout.html#!/Dangnhap";
+            }
+        }
+        $scope.Dangnhap = function(){
+          var user = $scope.user;
+          var pass = $scope.pass;
+          var flag = false;
+          var sv;
+          for(var i=0; i<listStudent.length;i++){
+            sv = listStudent[i];
+            if(user==sv.username && pass==sv.password)
+            {
+              flag = true;
+              sessionStorage.setItem("username", sv.username);
+              sessionStorage.setItem("fullname", sv.fullname);
+              sessionStorage.setItem("gender", sv.gender);
+              sessionStorage.setItem("birthday", sv.birthday);
+              sessionStorage.setItem("schoolfee", sv.schoolfee);
+              sessionStorage.setItem("marks", sv.marks);
+              sessionStorage.setItem("email", sv.email);
+              document.location = "layout.html";
+              
+              break;
+            }
+          }
+          if(flag == true){
+            alert("Đăng nhập thành công");
+          }
+          else alert("Sai tên đăng nhập hoặc mật khẩu");
+        }
+        $scope.Quenmatkhau = function(){
+            var user = $scope.user;
+            var email = $scope.email;
+            var flag = false;
+            var sv;
+            var oldPass
+            for(var i=0; i<listStudent.length;i++){
+                sv = listStudent[i];
+                if(user==sv.username && email==sv.email)
+                {
+                    flag = true;
+                    oldPass = sv.password
+                    break;
+                }
+            }
+            if(flag){
+                alert("Mật khẩu của bạn là: " + oldPass);
+            }else(alert("Không tìm thấy mật khẩu, sai email hoặc tên tài khoản"))
+        }
+        $scope.doimatkhau = function(){
+            var email = $scope.email;
+            var newpass = $scope.pass;
+            var sv; var flag = false;
+            for(var i=0; i<listStudent.length;i++){
+                sv= listStudent[i];
+                if(email == sv.email){
+                    sv.password = newpass;
+                    flag = true;
+                    console.log(listStudent);  
+                    break;
+                }
+            }
+            if(flag){
+                alert("Đổi mật khẩu thành công")
+            }else(alert("Đổi mật khẩu thất bại, sai địa chỉ email"))
+        }
+        $scope.Capnhattaikhoan = function(){
+            var email = sessionStorage.getItem("email");
+            var sv; var flag = false;
+            for(var i=0; i<listStudent.length;i++){
+                sv= listStudent[i];
+                if(email == sv.email){
+                    sv.fullname = angular.copy($scope.fullname);
+                    sv.gender = angular.copy($scope.gender);
+                    sv.schoolfee = angular.copy($scope.schoolfee);
+                    sv.marks = angular.copy($scope.marks);
+                    flag = true;
+                    sessionStorage.setItem("username", sv.username);
+                    sessionStorage.setItem("fullname", sv.fullname);
+                    sessionStorage.setItem("gender", sv.gender);
+                    sessionStorage.setItem("birthday", sv.birthday);
+                    sessionStorage.setItem("schoolfee", sv.schoolfee);
+                    sessionStorage.setItem("marks", sv.marks);
+                    sessionStorage.setItem("email", sv.email);
+                    console.log(listStudent);  
+                    break;
+                }
+            }
+            if(flag){
+                alert("Cập nhật thông tin thành công")
+            }else(alert("Thất bại"))
+        }
+       
+            $scope.username = sessionStorage.getItem("username");
+            $scope.fullname = sessionStorage.getItem("fullname");
+            $scope.gender = sessionStorage.getItem("gender");
+            $scope.birthday = sessionStorage.getItem("birthday");
+            $scope.schoolfee = sessionStorage.getItem("schoolfee");
+            $scope.marks = sessionStorage.getItem("marks");
+    })
+</script>
+</html>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>

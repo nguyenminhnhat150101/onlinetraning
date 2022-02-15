@@ -1,0 +1,29 @@
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">
+            <div class="card card-signin my-5">
+              <div class="card-body">
+                <h5 class="card-title text-center">Đổi Mật Khẩu</h5>              
+                <form class="form-signin">
+                  <div class="form-label-group">
+                    <input type="email" id="inputEmail" ng class="form-control" ng-model="email" placeholder="Địa chỉ email" required>
+                    <label for="inputEmail">Địa chỉ email</label>
+                  </div>
+                  <div class="form-label-group">
+                    <input type="password" id="inputmk" class="form-control" ng-model="pass" placeholder="Mật khẩu" required >
+                    <label for="inputmk">Mật khẩu</label>
+                  </div>
+                  <div class="form-label-group">
+                    <input type="password" id="inputmk2" class="form-control" placeholder="Nhập lại mật khẩu" required >
+                    <label for="inputmk2">Nhập lại mật khẩu</label>
+                  </div>
+                  <div class="d-grid">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" ng-click="doimatkhau()" type="submit">Đổi Mật Khẩu</button>
+                  </div>                
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>

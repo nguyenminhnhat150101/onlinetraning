@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-7 col-lg-8 mx-auto">
+            <div class="card card-signin my-5">
+                <div class="card-body">
+                    <h5 class="card-title text-center">Cập Nhật Hồ Sơ</h5>              
+                    <form class="form-signin">
+                        <div class="row">
+                            <div class="form-label-group col-6">
+                                <input type="text" id="tk" class="form-control" placeholder="Tên tài khoản" ng-model="username" required>
+                                <label for="tk">Tên tài khoản</label>
+                            </div>
+                            <div class="form-label-group col-6">
+                                <input type="text" id="ten" class="form-control" placeholder="Họ và tên" ng-model="fullname" required>
+                                <label for="ten">Họ và tên</label>
+                            </div>
+                        </div>                
+                        <div class="row">
+                            <div class="form-label-group col-6">
+                                <input type="text" id="pc" class="form-control" placeholder="Giới tính" ng-model="gender" required>
+                                <label for="pc">Giới tính</label>{{tl.TenKD=="" ? "Chưa có" : tl.TenKD}}
+                            </div>
+                            <div class="form-label-group col-6">
+                                <input type="text" id="luong" class="form-control" placeholder="Ngày Sinh" ng-model="birthday" required>
+                                <label for="luong">Ngày Sinh</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-label-group col-6">
+                                <input type="text" id="thuong" class="form-control" placeholder="Học Phí" ng-model="schoolfee" required>
+                                <label for="thuong">Học Phí</label>
+                            </div>
+                            <div class="form-label-group col-6">
+                                <input type="text" id="clb" class="form-control" placeholder="Điểm" ng-model="marks" required>
+                                <label for="clb">Điểm</label>
+                            </div>
+                        </div>
+                        <div class="d-grid">
+                            <button class="btn btn-lg btn-primary btn-block text-uppercase" ng-click="Capnhattaikhoan()" type="submit">cập nhật</button>
+                        </div>                       
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+<!--
+<article class="col-lg-9 col-md-8 col-12">
+    <h2 class="text-center">{{time | date : 'hh:mm:ss'}}</h2>
+    <div class="card mt-2" ng-repeat="cauhoi in questions|limitTo:1:start">
+        <div class="card-header">
+            <i class="fas fa-book"></i> LẬP TRÌNH ANDROID NÂNG CAO
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{cauhoi.Text}}</h5>
+            <div class="form-cauhoieck" ng-repeat="cautl in cauhoi.Answers">
+                    <input type="radio" name="cautraloi" value="{{cautl.Id}}"> {{cautl.Text}}
+            </div>
+        </div>
+        <div class="card-footer text-muted">
+            Điểm: {{cauhoi.cauhoiamdiem}} / 80
+        </div>
+    </div>
+    <div class="text-center pt-3 ">
+        <button class="prevtab btn btn-dark text-white" ng-click="first()">First</button>
+        <button class="prevtab btn btn-dark text-white" ng-click="Prev()">Prev</button>
+        <button class="nexttab btn btn-dark text-white" ng-click="Next()">Next</button>
+        <button class="nexttab btn btn-dark text-white" ng-click="last()">Last</button>
+    </div>
+</article>
+<aside class="col-lg-3 col-md-4 col-12">
+    <div class="card mt-1 ml-n2 mr-2 w-100">
+        <div class="card-header"><i class="fas fa-stream"> DANH MỤC MÔN HỌC</i></div>
+        <div class="card-body p-0">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="mon in cacmonhoc|orderBy:'Name'">{{mon.Name|uppercase}}</li>
+            
+            </ul>
+        </div>
+    </div>
+</aside>-->
+<article class="col-lg-9 col-md-8 col-12">
+    <h2 class="text-center">{{min}}:{{sec}}</h2>
+    <div class="card mt-2" ng-repeat="ch in questions|limitTo:1:start">
+      <div class="card-header">
+        <i class="fas fa-book">
+          <h4>Câu Hỏi môn học</h4>
+        </i>
+        <button class="btn btn-info float-leght">Nộp bài</button>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">{{ch.Text}}</h5>
+        <div class="form-check" ng-repeat="ans in ch.Answers">
+          <input type="radio" name="answer" value="{{ans.Id}}"> {{ans.Text}}
+        </div>
+      </div>
+      <div class="card-footer text-muted">
+        Điểm: {{ch.chamdiem}}/80
+      </div>
+    </div>
+    <div class="text-center pt-3">
+      <button class="prevtab btn btn-danger" ng-click="first()">First</button>
+      <button class="prevtab btn btn-danger" ng-click="truoc()">Prev</button>
+      <button class="nexttab btn btn-info" ng-click="tiep()">Next</button>
+      <button class="nexttab btn btn-info" ng-click="last()">Last</button>
+    </div>
+  </article>
+  <aside class="col-lg-3 col-md-4 col-12">
+    <div class="card mt-1 ml-n2 mr-2 w-100">
+      <div class="card-header"><i class="fas fa-stream"> DANH MỤC MÔN HỌC</i></div>
+      <div class="card-body p-0">
+        <ul class="list-group">
+          <li class="list-group-item" ng-repeat="sub in cacmonhoc|orderBy:'Name'">
+            <a href="#!tracnghiem/{{sub.Id}}/{{sub.Name}}">{{sub.Name|uppercase}}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </aside>

@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="css/dangki.css">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+          <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+               <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">Đăng kí</h5>
+              <form class="form-signin">
+                <div class="form-label-group">
+                  <input type="text" id="inputUserame" class="form-control" placeholder="Tên đăng nhập" ng-model="student.username" required autofocus>
+                  <label for="inputUserame">Tên đăng nhập</label>
+                </div>
+  
+                <div class="form-label-group">
+                  <input type="email" id="inputEmail" class="form-control" placeholder="Địa chỉ Email" required ng-model="student.email" >
+                  <label for="inputEmail">Địa chỉ Email</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword" class="form-control" placeholder="Mật khẩu" required ng-model="Student.password">
+                  <label for="inputPassword">Mật khẩu</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="password" id="inputPassword2" class="form-control" placeholder="Nhập lại mật khẩu" required  >
+                  <label for="inputPassword2">Nhập lại mật khẩu</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="inputname" class="form-control" placeholder="Họ và tên" ng-model="student.fullname" required >
+                  <label for="inputname">Họ và tên</label>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Giới tính: </label>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" ng-model="student.gender" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="Nam">
+                      <label class="form-check-label" for="inlineRadio1">Nam</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                      <input class="form-check-input" ng-model="student.gender" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="Nữ">
+                      <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                  </div>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="inputbrithday" class="form-control" placeholder="Ngày sinh" ng-model="student.birthday" required >
+                  <label for="inputbrithday">Ngày sinh</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="inputschoolfee" class="form-control" placeholder="Học phí" ng-model="student.schoolfee"  >
+                  <label for="inputschoolfee">Học phí</label>
+                </div>
+
+                <div class="form-label-group">
+                  <input type="text" id="inputmarks" class="form-control" placeholder="Điểm" ng-model="student.marks"  >
+                  <label for="inputmarks">Điểm</label>
+                </div>
+
+                <div class="d-grid">
+                  <button class="btn btn-lg btn-primary btn-block text-uppercase"   ng-click="Dangki()"  type="submit">Đăng Kí</button>
+                </div>                                         
+                <a class="d-block text-center mt-2 small" href="layout.html#!/Dangnhap">Đăng Nhập</a>
+                <hr class="my-4">
+                <div class="d-grid gap-2">
+                  <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Đăng ký bằng Google</button>
+                  <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Đăng ký bằng Facebook</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
